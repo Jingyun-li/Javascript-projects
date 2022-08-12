@@ -1,0 +1,61 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="style.css">
+    <title>Photo Viewer</title>
+    <script src="code.js" defer></script>
+</head>
+
+
+<body>
+    <div class="div1">
+        <h1><u>Photo Viewer</u></h1>
+        <form>
+            <img id="theImage" src="InitialImage.jpg" alt="viewerImg" /><br />
+
+            <fieldset>
+                <legend>
+                    <strong>loading Data</strong>
+                </legend>
+
+                <label>Photos' Folder: <input type="text" id="photoFolder" /></label>
+                <label>Common Name: <input type="text" id="commonName" /></label><br>
+                <label>Start Photo Number: <input type="text" id="startNumber" /></label>
+                <label>End Photo Number: <input type="text" id="endNumber" /></label><br>
+                <label><input type="button" value="Load Photos" id="loadPhoto"></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <strong>Iterating</strong>
+                </legend>
+                <label><input type="button" value="Previous Photo" id="prevphoto"></label>
+                <label><input type="button" value="Next Photo" id="nxtphoto"></label>
+                <label><input type="button" value="First Photo" id="firstphoto"></label>
+                <label> <input type="button" value="Last Photo" id="lastphoto"></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <strong>SlideShows</strong>
+                </legend>
+                <label><input type="button" value="SlideShow" id="slideshow"></label>
+                <label><input type="button" value="RandomSlideShow" id="randomshow"></label>
+                <label><input type="button" value="StopSlideShow" id="stop"></label>
+            </fieldset>
+
+            <fieldset>
+                <legend>
+                    <strong>Status</strong>
+                </legend>
+                <label>Photo Being Displayed: <input type="text" id="displayedphoto" value="hello" disabled /></label><br>
+                <div id="displayArea">Photo Viewer System
+                </div>
+            </fieldset>
+        </form>
+    </div>
+
+</body>
+
+</html>

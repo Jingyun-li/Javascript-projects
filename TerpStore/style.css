@@ -1,0 +1,102 @@
+html {
+    font-size: 10px;
+    font-family: Arial;
+}
+
+#box {
+    width: 75rem;
+    height: 66rem;
+    margin: 0.5rem;
+    position: fixed;
+    border: solid green 0.5rem;
+    background: url(JimHenson.jpg) no-repeat;
+    background-size: cover;
+}
+
+h1 {
+    font-size: 4rem;
+    position: absolute;
+    top: -2rem;
+    left: 1rem;
+    color: azure;
+    background-color: rgba(0, 0, 0, .4);
+}
+
+.box {
+    font-size: 2rem;
+    position: absolute;
+    left: 25rem;
+    top: 24rem;
+    text-align: center;
+    width: 22rem;
+    background-color: rgb(211, 211, 211, 0.8);
+    border-style: solid;
+}
+
+a:link {
+    color: brown;
+}
+
+a:visited {
+    color: beige;
+}
+
+a:hover {
+    font-size: 1.9rem;
+}
+
+form {
+    border: azure;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-size: 1.8rem;
+    left: 2rem;
+    top: 8rem;
+    position: absolute;
+    text-align: inherit;
+    background: rgba(255, 255, 255, 0.85);
+    border: solid azure 0.3rem;
+}
+
+
+select {
+
+    width: 15rem;
+    border: 0.2rem solid red;
+    border-radius: 2px;
+    box-sizing: border-box;
+}
+
+input[type=text],
+input[type=email],
+input[type=number]{
+
+    border: 0.2rem solid red;
+    box-sizing: border-box;
+}
+
+input[type=submit],
+input[type=reset] {
+    border: double;
+    width: 100px;
+    height: 35px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+footer {
+    border: 0.5rem solid lightblue;
+    position: absolute;
+    bottom: 0rem;
+    width: 98.6%;
+}
+
+footer div {
+    font-size: 2rem;
+    font-style: italic;
+    text-align: center;
+    position: relative;
+    padding: 2rem;
+    background-color: red;
+    border: 0.5rem ridge lightgrey;
+}

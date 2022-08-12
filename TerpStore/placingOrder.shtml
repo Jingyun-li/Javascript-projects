@@ -1,0 +1,38 @@
+<shtml>
+
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+
+        <div id="box">
+            <h1><u> Placing Order </u></h1>
+            <form action="processing/placingOrder.php" method="post">
+                <p>
+                    <u>Item Serial #</u> <input type="text" name="serialNumber" required placeholder="umd-item-0000" autofocus /><br>
+
+                </p>
+
+                <p>
+                    <u>Credit Card #</u> <input type="text" name="cc1" required maxlength="4" size="4" /> - <input type="text" name="cc2" required maxlength="4" size="4" /> - <input type="text" name="cc3" required maxlength="4" size="4" /> - <input type="text" name="cc4" required maxlength="4" size="4" />
+                </p>
+
+                <p>
+                    <u>Shipping Address</u> <input type="text" name="shipping" maxlength="80" required /><br>
+                </p>
+
+                <p>
+                    <u>Contact Email Address:</u> <input type="email" name="email" size="28" placeholder="example@terpmail.umd.edu" /><br>
+                </p>
+
+                <p>
+                    <input type="submit" value="Submit Inquiry" />
+                    <input type="reset" value="Clear" />
+                </p>
+
+            </form>
+            <!--#include virtual="footer.shtml" -->
+        </div>
+    </body>
+</shtml>

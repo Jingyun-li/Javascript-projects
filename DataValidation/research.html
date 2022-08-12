@@ -1,0 +1,143 @@
+<shtml>
+
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="research.css">
+        <title>Reasearch Form</title>
+    </head>
+
+    <body>
+        <h1><u>Research form</u></h1>
+        <form action="researchProcessing.php" method="get" id="researchForm">
+            <fieldset>
+                <legend><i>General Information</i></legend>
+
+                Firstname: <input type="text" id="firstname" name="firstname" size="25" required />
+                Lastname: <input type="text" id="lastname" name="lastname" size="25" required /><br><br>
+                Phone: <input type="text" id="phoneFirstPart" name="phoneFirstPart" size="3" minlength="3" maxlength="3" required /> -
+                <input type="text" id="phoneSecondPart" name="phoneSecondPart" minlength="3" maxlength="3" size="3" required /> -
+                <input type="text" id="phoneThirdPart" name="phoneThirdPart" minlength="4" maxlength="4" size="4" required />
+                Email: <input type="email" id="email" name="email" size="60" required /><br>
+
+            </fieldset><br>
+            <fieldset>
+                <legend><i>Research Study Data</i></legend>
+                <fieldset>
+                    <legend>
+                        Age/Height/Weight
+                    </legend>
+                    <strong>Age: </strong><input type="number" id="age" name="age" min="1" max="125" /> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <strong>Height: </strong><input type="number" id="heightFeet" name="heightFeet" min="2" max="7" /> <i>Feet</i>
+                    <input type="number" id="heightInches" name="heightInches" min="0" max="11" /> <i>Inches</i> &nbsp;&nbsp;&nbsp;&nbsp;
+                    <strong>Weight: </strong><input type="number" id="weight" name="weight" min="1" max="600" /> <i>Pounds</i>
+                </fieldset><br>
+
+                <fieldset>
+                    <legend> Conditions </legend>
+                    Which of the following conditions are present in your family? (Check all that apply)<br>
+                    <input type="checkbox" id="highBloodPressure" name="highBloodPressure" value="High Blood Pressure" />HighBloodPressure
+                    <input type="checkbox" id="diabetes" name="diabetes" value="Diabetes" />Diabetes
+                    <input type="checkbox" id="glaucoma" name="glaucoma" value="Glaucoma" />Glaucoma
+                    <input type="checkbox" id="asthma" name="asthma" value="Asthma" />Asthma
+                    <input type="checkbox" id="none" name="none" value="None" />None
+                </fieldset><br>
+
+                <fieldset>
+                    <legend> Time Period </legend>
+                    How long have you experienced any of the above conditions?<br>
+                    <input type="radio" id="never" name="period" value="Never">Never
+                    <input type="radio" id="lessThanAYear" name="period" value="Less than a year">Less than a year
+                    <input type="radio" id="oneOrTwoYears" name="period" value="One or two years">One or two years
+                    <input type="radio" id="moreThanTwoYears" name="period" value="More than two years">More than two years
+                </fieldset><br>
+
+                <fieldset>
+                    <legend> Study Information </legend>
+                    Which study are you taking part of? <select id="preference">
+                        <option value="studyType" name="studyType">Short term</option>
+                        <option value="studyType" name="studyType" selected="selected">Long term</option>
+                    </select>&nbsp;
+                    Assigned Study Id: <input type="text" id="firstFourDigits" name="firstFourDigits" size="4" placeholder="A777" required /> -
+                    <input type="text" id="secondFourDigits" name="secondFourDigits" size="4" placeholder="B888" required />
+
+                </fieldset><br>
+
+                <fieldset>
+                    <legend> Additional Information (Comments) </legend>
+                    <textarea id="comments" name="comments" rows="5" cols="55"></textarea>
+
+                </fieldset>
+
+            </fieldset><br>
+
+            <fieldset>
+                <input type="reset" value="Clear Form">
+                <input type="submit" value="Submit Information">
+            </fieldset><br>
+        </form>
+
+        <footer>
+
+            <p> CMSC Research Institute &reg;</p>
+        </footer>
+
+        <script>
+            window.onsubmit = validateForm;
+
+
+            function validateForm() {
+                let highBloodPressure = document.getElementById("highBloodPressure");
+                let diabetes = document.getElementById("diabetes");
+                let glaucoma = document.getElementById("glaucoma");
+                let asthma = document.getElementById("asthma");
+                let none = document.getElementById("none");
+
+                let never = document.getElementById("never");
+                let lessThanAYear = document.getElementById("lessThanAYear");
+                let oneOrTwoYears = document.getElementById("oneOrTwoYears");
+                let moreThanTwoYears = document.getElementById("moreThanTwoYears");
+
+                let phoneFirstPart = document.getElementById("phoneFirstPart").value;
+                let phoneSecondPart = document.getElementById("phoneSecondPart").value;
+                let phoneThirdPart = document.getElementById("phoneThirdPart").value;
+
+                let firstFourDigits = document.getElementById("firstFourDigits").value;
+                let firstFour = firstFourDigits.split("");
+                let secondFourDigits = document.getElementById("secondFourDigits").value;
+                let secondFour = secondFourDigits.split("");
+
+                let invalidMessages = "";
+                if (!(highBloodPressure.checked || diabetes.checked || glaucoma.checked || asthma.checked || none.checked)) {
+                    invalidMessages += "No conditions selected\n";
+                }
+                if (!(never.checked || lessThanAYear.checked || oneOrTwoYears.checked || moreThanTwoYears.checked)) {
+                    invalidMessages += "No time period selected\n";
+                }
+                if (String(parseInt(phoneFirstPart)) !== phoneFirstPart) {
+                    invalidMessages += "Invalid phone number\n";
+                }
+                if (firstFour.length == 4 && secondFour.length == 4) {
+                    if (firstFour[0] == "A" && secondFour[0] == "B") {
+                        if (String(parseInt(firstFourDigits.substring(1))) == firstFourDigits.substring(1) &&
+                            String(parseInt(secondFourDigits.substring(1))) == secondFourDigits.substring(1)) {
+                            invalidMessages;
+                        } else {
+                            invalidMessages += "Invalid study id\n";
+                        }
+                    } else {
+                        invalidMessages += "Invalid study id\n";
+                    }
+                } else {
+                    invalidMessages += "Invalid study id\n";
+                }
+                if (invalidMessages !== "") {
+                    alert(invalidMessages);
+                    return false;
+                } else {
+                    return window.confirm("Do you want to submit the form data?")
+                }
+            }
+
+        </script>
+    </body>
+</shtml>

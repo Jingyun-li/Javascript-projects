@@ -1,0 +1,18 @@
+<shtml>
+
+    <head>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+
+    <body>
+        <div id="box">
+            <h1><u> Terp Store </u></h1>
+            <p class="box">
+                <a class="a1" href="catalogInquiry.shtml"> Catalog Inquiry </a><br>
+                <a class="a2" href="placingOrder.shtml"> Placing Order </a><br>
+            </p>
+            <!--#include virtual="footer.shtml" -->
+        </div>
+        
+    </body>
+</shtml>
